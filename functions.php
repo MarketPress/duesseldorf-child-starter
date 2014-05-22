@@ -28,7 +28,7 @@ function duesseldorf_child_setup() {
 		get_stylesheet_directory() . '/languages'
 	);
 
-	$vendor_dir = $vendor_dir = dirname( __FILE__ ) . '/vendors/';
+	$vendor_dir = dirname( __FILE__ ) . '/vendors/';
 
 	if( !is_admin() ){
 
