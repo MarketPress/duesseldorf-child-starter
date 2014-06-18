@@ -33,12 +33,61 @@ function duesseldorf_child_setup() {
 	if( !is_admin() ){
 
 		// styles
-		include_once( $vendor_dir . 'duesseldorf_child/frontend/style.php' );
 		add_filter( 'duesseldorf_get_styles', 'duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets' );
 
 		// general
-		include_once( $vendor_dir . 'duesseldorf_child/frontend/general.php' );
 		add_filter( 'duesseldorf_get_theme_info', 'duesseldorf_child_filter_duesseldorf_get_theme_info' );
 
 	}
+}
+
+
+/**
+ * Adding our own Styles for our Child-Theme
+ *
+ * @wp-hook duesseldorf_get_styles
+ * @param   Array $styles
+ * @return  Array $styles
+ */
+function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array $styles = array() ) {
+
+	// getting the ".min"-suffix for styles
+	$suffix = duesseldorf_get_script_suffix();
+
+	// getting the theme-data
+	$theme_data = wp_get_theme();
+
+	// adding our own styles to
+	$styles[ 'duesseldorf_child' ] = array(
+		'src'       => get_stylesheet_directory_uri() . '/assets/css/style' . $suffix . '.css',
+		'deps'      => NULL,
+		'version'   => $theme_data->Version,
+		'media'     => NULL
+	);
+
+	return $styles;
+
+}
+
+
+
+/**
+ * Adding our own Theme-Info
+ *
+ * @wp-hook duesseldorf_get_theme_info
+ * @param   String $text
+ * @return  String $text
+ */
+function duesseldorf_child_filter_duesseldorf_get_theme_info( $text ) {
+
+	$home_url = home_url( '/' );
+	$home_url = esc_url( $home_url );
+
+	$text = sprintf(
+		'<p id="site-info">Custom footer here, including a <a href="%s" rel="nofollow">link</a>. Edit this line in: <br><br><code>vendors/<br>&nbsp;|- duesseldorf_child/<br>&nbsp;&nbsp;|- frontend/<br>&nbsp;&nbsp;&nbsp;|- general.php</code></p>',
+		$home_url
+	);
+
+	return $text;
+
 }

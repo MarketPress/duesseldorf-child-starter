@@ -7,12 +7,6 @@ This is a starter kit for a custom child theme. Child themes in WordPress enable
 
 This starter kit uses our own theme [Düsseldorf](http://marketpress.com/product/duesseldorf/) as the parent theme. Feel free to use it for your own projects, or hack it and create your own child theme starter kit.
 
-As a bonus for Düsseldorf users, we have added a second stylesheet which supports styling for WooCommerce elements. The child theme will now
-
-* check if WooCommerce is active;
-* if yes, load *style.plus.woo.css*;
-* if not, load the smaller *style.css*.
-
 Also, as in Düsseldorf and many other themes, minified stylesheets are loaded by default. To load the extended files, set `SCRIPT_DEBUG` to `TRUE` in your *wp-config.php*.
 
 ## Ressources
