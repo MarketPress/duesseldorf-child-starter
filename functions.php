@@ -82,7 +82,7 @@ function duesseldorf_child_filter_duesseldorf_get_theme_info( $text ) {
 	$home_url = esc_url( $home_url );
 
 	$text = sprintf(
-		'<p id="site-info">Custom footer here, including a <a href="%s" rel="nofollow">link</a>. Edit this line in: <br><br><code>vendors/<br>&nbsp;|- duesseldorf_child/<br>&nbsp;&nbsp;|- frontend/<br>&nbsp;&nbsp;&nbsp;|- general.php</code></p>',
+		'<p id="site-info">Custom copyright here, including a <a href="%s" rel="nofollow">link</a>.</p>',
 		$home_url
 	);
 
