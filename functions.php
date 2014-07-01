@@ -4,7 +4,7 @@
  *
  * @package    WordPress
  * @subpackage Düsseldorf_Child
- * @version    05/21/2014
+ * @version    1.0
  * @author     marketpress.com
  */
 
