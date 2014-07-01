@@ -19,9 +19,7 @@ Also, as in Düsseldorf and many other themes, minified stylesheets are loaded b
 ## Contributors
 
 * [@inpsyde](https://github.com/inpsyde)
-* [@bueltge](https://github.com/bueltge)
-* [@glueckpress](https://github.com/glueckpress)
-* [@toscho](https://github.com/toscho)
+* [@chrico](https://github.com/chrico)
 
 **Brought to you by**
 
