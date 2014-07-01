@@ -24,7 +24,7 @@ function duesseldorf_child_setup() {
 
 	// Loads the child theme's translated strings
 	load_child_theme_textdomain(
-		'theme_duesseldorf_child_textdomain',
+		'theme_duesseldorf_child',
 		get_stylesheet_directory() . '/languages'
 	);
 
