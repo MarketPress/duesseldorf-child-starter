@@ -7,7 +7,7 @@ This is a starter kit for a custom child theme. Child themes in WordPress enable
 
 This starter kit uses our own theme [Düsseldorf](http://marketpress.com/product/duesseldorf/) as the parent theme. Feel free to use it for your own projects, or hack it and create your own child theme starter kit.
 
-Also, as in Düsseldorf and many other themes, minified stylesheets are loaded by default. To load the extended files, set `SCRIPT_DEBUG` to `TRUE` in your *wp-config.php*.
+Also, as in Düsseldorf and many other themes, minified stylesheets can be loaded by default. In order to load minified versions of stylesheets and scripts, visit functions.php and set a filter as documented inline.
 
 ## Ressources
 

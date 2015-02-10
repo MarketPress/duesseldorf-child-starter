@@ -4,7 +4,7 @@
  *
  * @package    WordPress
  * @subpackage Düsseldorf_Child
- * @version    1.0
+ * @version    1.1
  * @author     marketpress.com
  */
 
@@ -21,6 +21,26 @@ add_action( 'after_setup_theme', 'duesseldorf_child_setup' );
  * @return  void
  */
 function duesseldorf_child_setup() {
+
+	/* The .min suffix for stylesheets and scripts.
+	 *
+	 * In order to provide a quick start, this child theme by default will load
+	 * regular CSS and javascript files (whereas its parent theme loads
+	 * minified versions of its stylesheets and scripts by default).
+	 *
+	 * If you want your child theme to default on minified stylesheets and scripts,
+	 * set the following filter:
+	 *
+	 * if( function_exists( 'duesseldorf_get_script_suffix' ) ) {
+	 *     add_filter( 'duesseldorf_child_starter_get_script_suffix', 'duesseldorf_get_script_suffix' );
+	 * }
+	 *
+	 * Don’t forget to actually add applicable .min files to your child theme first!
+	 *
+	 * You can then temporarily switch back to unminified versions of the same
+	 * files by setting the constant SCRIPT_DEBUG to TRUE in your wp-config.php:
+	 * define( 'SCRIPT_DEBUG', TRUE );
+	 */
 
 	// Loads the child theme's translated strings
 	load_child_theme_textdomain(
@@ -41,7 +61,7 @@ function duesseldorf_child_setup() {
 
 
 /**
- * Adding our own Styles for our Child-Theme
+ * Adding our own styles for our child theme
  *
  * @wp-hook duesseldorf_get_styles
  * @param   Array $styles
@@ -49,30 +69,15 @@ function duesseldorf_child_setup() {
  */
 function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array $styles = array() ) {
 
-	/**
-	 * The .min suffix for stylesheets and scripts.
-	 *
-	 * In order to provide a quick start, this child theme by default will load
-	 * regular style.css (whereas its parent theme Düsseldorf loads minified
-	 * versions of its stylesheets and scripts by default).
-	 *
-	 * If you want your child theme to default on minified stylesheets as well,
-	 * just uncomment line 68.
-	 * You can then temporarily switch back to unminified versions of the same
-	 * files by setting the constant SCRIPT_DEBUG to TRUE in your wp-config.php:
-	 * define( 'SCRIPT_DEBUG', TRUE );
-	 */
-	$suffix = '';
-
-	// Uncomment to load minified stylesheet by default
-	// $suffix = duesseldorf_get_script_suffix();
+	// add suffix
+	$suffix = apply_filters( 'duesseldorf_child_starter_get_script_suffix', '__return_empty_string' );
 
 	// getting the theme-data
 	$theme_data = wp_get_theme();
 
 	// adding our own styles to
 	$styles[ 'duesseldorf_child' ] = array(
-		'src'       => get_stylesheet_directory_uri() . '/assets/css/style' . $suffix . '.css',
+		'src'       => get_stylesheet_directory_uri() . '/style' . $suffix . '.css',
 		'deps'      => NULL,
 		'version'   => $theme_data->Version,
 		'media'     => NULL
@@ -85,7 +90,7 @@ function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array 
 
 
 /**
- * Adding our own Theme-Info
+ * Adding our own site info footer line
  *
  * @wp-hook duesseldorf_get_theme_info
  * @param   String $text
