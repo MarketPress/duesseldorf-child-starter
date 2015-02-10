@@ -70,7 +70,7 @@ function duesseldorf_child_setup() {
 function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array $styles = array() ) {
 
 	// add suffix
-	$suffix = apply_filters( 'duesseldorf_child_starter_get_script_suffix', '__return_empty_string' );
+	$suffix = apply_filters( 'duesseldorf_child_starter_get_script_suffix', __return_empty_string() );
 
 	// getting the theme-data
 	$theme_data = wp_get_theme();
