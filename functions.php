@@ -61,7 +61,7 @@ function duesseldorf_child_setup() {
 
 
 /**
- * Adding our own Styles for our Child-Theme
+ * Adding our own styles for our child theme
  *
  * @wp-hook duesseldorf_get_styles
  * @param   Array $styles
@@ -77,7 +77,7 @@ function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array 
 
 	// adding our own styles to
 	$styles[ 'duesseldorf_child' ] = array(
-		'src'       => get_stylesheet_directory_uri() . '/assets/css/style' . $suffix . '.css',
+		'src'       => get_stylesheet_directory_uri() . '/style' . $suffix . '.css',
 		'deps'      => NULL,
 		'version'   => $theme_data->Version,
 		'media'     => NULL
@@ -90,7 +90,7 @@ function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array 
 
 
 /**
- * Adding our own Theme-Info
+ * Adding our own site info footer line
  *
  * @wp-hook duesseldorf_get_theme_info
  * @param   String $text
