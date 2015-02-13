@@ -43,12 +43,9 @@ function duesseldorf_child_setup() {
 	 */
 
 	// Loads the child theme's translated strings
-	load_child_theme_textdomain(
-		'duesseldorf-child-starter',
-		get_stylesheet_directory() . '/languages'
-	);
+	load_child_theme_textdomain( 'duesseldorf-child-starter', get_stylesheet_directory() . '/languages' );
 
-	if( !is_admin() ){
+	if ( ! is_admin() ) {
 
 		// styles
 		add_filter( 'duesseldorf_get_styles', 'duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets' );
@@ -64,7 +61,9 @@ function duesseldorf_child_setup() {
  * Adding our own styles for our child theme
  *
  * @wp-hook duesseldorf_get_styles
+ *
  * @param   Array $styles
+ *
  * @return  Array $styles
  */
 function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array $styles = array() ) {
@@ -77,10 +76,10 @@ function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array 
 
 	// adding our own styles to
 	$styles[ 'duesseldorf_child' ] = array(
-		'src'       => get_stylesheet_directory_uri() . '/style' . $suffix . '.css',
-		'deps'      => NULL,
-		'version'   => $theme_data->Version,
-		'media'     => NULL
+		'src'     => get_stylesheet_directory_uri() . '/style' . $suffix . '.css',
+		'deps'    => NULL,
+		'version' => $theme_data->Version,
+		'media'   => NULL
 	);
 
 	return $styles;
@@ -88,12 +87,13 @@ function duesseldorf_child_filter_duesseldorf_get_styles_add_stylesheets( array 
 }
 
 
-
 /**
  * Adding our own site info footer line
  *
  * @wp-hook duesseldorf_get_theme_info
+ *
  * @param   String $text
+ *
  * @return  String $text
  */
 function duesseldorf_child_filter_duesseldorf_get_theme_info( $text ) {
@@ -101,10 +101,8 @@ function duesseldorf_child_filter_duesseldorf_get_theme_info( $text ) {
 	$home_url = home_url( '/' );
 	$home_url = esc_url( $home_url );
 
-	$text = sprintf(
-		'<p id="site-info">Custom copyright here, including a <a href="%s" rel="nofollow">link</a>.</p>',
-		$home_url
-	);
+	$text = '<p id="site-info">Custom copyright here, including a <a href="%s" rel="nofollow">link</a>.</p>';
+	$text = sprintf( $text, $home_url );
 
 	return $text;
 
