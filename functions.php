@@ -4,8 +4,8 @@
  *
  * @package    WordPress
  * @subpackage Düsseldorf_Child
- * @version    1.1
- * @author     marketpress.com
+ * @version    1.1.1
+ * @author     MarketPress
  */
 
 add_action( 'after_setup_theme', 'duesseldorf_child_setup' );
